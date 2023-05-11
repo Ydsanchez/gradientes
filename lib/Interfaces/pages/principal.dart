@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:gradientes/Interfaces/pages/gradientes.dart';
-import 'package:gradientes/Interfaces/pages/gradientes_ascendentes.dart';
-import 'package:gradientes/Interfaces/pages/introduccion.dart';
+import 'package:gradientes/Interfaces/pages/TemasGradientes/gradiente_aritmetico_o_lineal.dart';
+import 'package:gradientes/Interfaces/pages/TemasGradientes/gradiente_geometrico_exponencial.dart';
+import 'package:gradientes/Interfaces/pages/TemasGradientes/gradiente_lineal_decreciente.dart';
+import 'package:gradientes/Interfaces/pages/bienvenido.dart';
 
 import '../../Widgets/cajondecabecera.dart';
+import 'TemasGradientes/gradiente_aritmetico_anticipada.dart';
+import 'TemasGradientes/gradientes.dart';
 
 class Bienvenidos extends StatefulWidget {
   const Bienvenidos({super.key});
@@ -13,17 +16,24 @@ class Bienvenidos extends StatefulWidget {
 }
 
 class _BienvenidosState extends State<Bienvenidos> {
-  var currentPage = DrawerSections.INTRODUCCION;
+  var currentPage = DrawerSections.BIENVENIDO;
 
   @override
   Widget build(BuildContext context) {
     var container;
-    if (currentPage == DrawerSections.INTRODUCCION) {
+    if (currentPage == DrawerSections.BIENVENIDO) {
       container = Introduccion();
     } else if (currentPage == DrawerSections.GRADIENTES) {
       container = Gradientes();
-    } else if (currentPage == DrawerSections.GRADIENTES_ASENDENTES) {
-      container = Gradientes_Ascendentes();
+    } else if (currentPage == DrawerSections.GRADIENTES_ARITMETICO_O_LINEAL) {
+      container = GradientesAritmeticosLineal();
+    } else if (currentPage == DrawerSections.GRADIENTES_ARITMETICO_ANTICIPADO) {
+      container = GradientesAritmeticoAnticipada();
+    } else if (currentPage == DrawerSections.GRADIENTES_LINEAL_DECRECIENTE) {
+      container = GradientesLinealDecreciente();
+    } else if (currentPage ==
+        DrawerSections.GRADIENTES_GEOMETRICO_EXPONENCIAL) {
+      container = GradienteGeometricoExponencial();
     }
 
     return Scaffold(
@@ -52,15 +62,36 @@ class _BienvenidosState extends State<Bienvenidos> {
       padding: EdgeInsets.only(top: 15),
       child: Column(
         children: [
-          MenuItem(1, "INTRODUCCION", Icons.book,
-              currentPage == DrawerSections.INTRODUCCION ? true : false),
-          MenuItem(2, "GRADIENTE", Icons.book,
+          MenuItem(1, "BIENCENIDOS", Icons.book,
+              currentPage == DrawerSections.BIENVENIDO ? true : false),
+          MenuItem(2, "GRADIENTES", Icons.book,
               currentPage == DrawerSections.GRADIENTES ? true : false),
           MenuItem(
               3,
-              "GRADIENTE ASCENDENTE",
+              "GRADIENTE ARITMETICO O LINEAL",
               Icons.book,
-              currentPage == DrawerSections.GRADIENTES_ASENDENTES
+              currentPage == DrawerSections.GRADIENTES_ARITMETICO_O_LINEAL
+                  ? true
+                  : false),
+          MenuItem(
+              4,
+              "GRADIENTE ARITMETICO ANTICIPADO",
+              Icons.book,
+              currentPage == DrawerSections.GRADIENTES_ARITMETICO_ANTICIPADO
+                  ? true
+                  : false),
+          MenuItem(
+              5,
+              "GRADIENTE LINEAL DECRECIENTE",
+              Icons.book,
+              currentPage == DrawerSections.GRADIENTES_LINEAL_DECRECIENTE
+                  ? true
+                  : false),
+          MenuItem(
+              6,
+              "GRADEINTE GEOMETRICO EXPONENCIAL",
+              Icons.book,
+              currentPage == DrawerSections.GRADIENTES_GEOMETRICO_EXPONENCIAL
                   ? true
                   : false)
         ],
@@ -76,11 +107,17 @@ class _BienvenidosState extends State<Bienvenidos> {
           Navigator.pop(context);
           setState(() {
             if (id == 1) {
-              currentPage = DrawerSections.INTRODUCCION;
+              currentPage = DrawerSections.BIENVENIDO;
             } else if (id == 2) {
               currentPage = DrawerSections.GRADIENTES;
             } else if (id == 3) {
-              currentPage = DrawerSections.GRADIENTES_ASENDENTES;
+              currentPage = DrawerSections.GRADIENTES_ARITMETICO_O_LINEAL;
+            } else if (id == 4) {
+              currentPage = DrawerSections.GRADIENTES_ARITMETICO_ANTICIPADO;
+            } else if (id == 5) {
+              currentPage = DrawerSections.GRADIENTES_LINEAL_DECRECIENTE;
+            } else if (id == 6) {
+              currentPage = DrawerSections.GRADIENTES_GEOMETRICO_EXPONENCIAL;
             }
           });
         },
@@ -114,7 +151,10 @@ class _BienvenidosState extends State<Bienvenidos> {
 }
 
 enum DrawerSections {
-  INTRODUCCION,
+  BIENVENIDO,
   GRADIENTES,
-  GRADIENTES_ASENDENTES,
+  GRADIENTES_ARITMETICO_O_LINEAL,
+  GRADIENTES_ARITMETICO_ANTICIPADO,
+  GRADIENTES_LINEAL_DECRECIENTE,
+  GRADIENTES_GEOMETRICO_EXPONENCIAL,
 }

@@ -8,7 +8,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Gradientes',
-      theme: ThemeData(primarySwatch: Colors.blueGrey),
+      theme: ThemeData(fontFamily: 'Crimson_Text'),
       home: const Bienvenidos(),
       debugShowCheckedModeBanner: false,
     );
