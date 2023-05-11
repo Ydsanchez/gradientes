@@ -89,7 +89,7 @@ class _BienvenidosState extends State<Bienvenidos>
       padding: EdgeInsets.only(top: 15),
       child: Column(
         children: [
-          MenuItem(1, "BIENCENIDOS", Icons.book,
+          MenuItem(1, "BIENVENIDOS", Icons.book,
               currentPage == DrawerSections.BIENVENIDO ? true : false),
           MenuItem(2, "GRADIENTES", Icons.book,
               currentPage == DrawerSections.GRADIENTES ? true : false),
