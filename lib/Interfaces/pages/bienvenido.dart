@@ -16,6 +16,7 @@ class Introduccion extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
+        SizedBox(height: 30),
         Text(
           "En esta aplicacion aprendera sobre las gradientes lineales o aritmeticas, geometricas entre otras. Obtendra ejercicios y problemas para resolver inlcluida una calculadora por solucion",
           textAlign: TextAlign.center,
